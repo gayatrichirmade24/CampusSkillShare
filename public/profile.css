@@ -1,0 +1,59 @@
+.profile-form {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    border: 1px solid #deddd6;
+    border-radius: 22px;
+    padding: 28px;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.profile-form label small {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin: 5px 0 8px;
+    font-weight: 400;
+}
+
+.profile-form input,
+.profile-form textarea,
+.profile-form select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #deddd6;
+    border-radius: 10px;
+    background: #fafaf7;
+    outline: none;
+    margin-top: 8px;
+}
+
+.profile-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.profile-form input:focus,
+.profile-form textarea:focus,
+.profile-form select:focus {
+    border-color: #171717;
+}
+
+.send {
+    border: 0;
+    background: #171717;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-form .send {
+    width: 100%;
+}

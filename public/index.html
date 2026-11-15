@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Campus SkillShare</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         AUTH SECTION
+    ========================== -->
+
+    <div id="auth-section" class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="logo">
+                Campus<span>SkillShare</span>
+            </div>
+
+            <p class="tagline">
+                Find students. Share skills. Build together.
+            </p>
+
+
+            <!-- LOGIN -->
+
+            <div id="login-form">
+
+                <h2>Welcome back 👋</h2>
+
+                <p class="form-subtitle">
+                    Login to find your next project teammate.
+                </p>
+
+                <form id="loginForm">
+
+                    <input
+                        type="email"
+                        id="login-email"
+                        placeholder="College Email"
+                        required
+                    >
+
+                    <input
+                        type="password"
+                        id="login-password"
+                        placeholder="Password"
+                        required
+                    >
+
+                    <button type="submit">
+                        Login
+                    </button>
+
+                </form>
+
+                <p id="login-error" class="error"></p>
+
+                <p class="switch-auth">
+                    Don't have an account?
+                    <button
+                        type="button"
+                        id="show-signup"
+                        class="text-button"
+                    >
+                        Sign up
+                    </button>
+                </p>
+
+            </div>
+
+
+            <!-- SIGNUP -->
+
+            <div
+                id="signup-form"
+                class="hidden"
+            >
+
+                <h2>Create your account 🚀</h2>
+
+                <p class="form-subtitle">
+                    Join your campus skill-sharing community.
+                </p>
+
+                <form id="signupForm">
+
+                    <input
+                        type="text"
+                        id="signup-name"
+                        placeholder="Full Name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        id="signup-email"
+                        placeholder="College Email"
+                        required
+                    >
+
+                    <input
+                        type="password"
+                        id="signup-password"
+                        placeholder="Password"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="signup-college"
+                        placeholder="College"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="signup-branch"
+                        placeholder="Branch"
+                        required
+                    >
+
+                    <select id="signup-year" required>
+
+                        <option value="">
+                            Select Year
+                        </option>
+
+                        <option value="1">
+                            First Year
+                        </option>
+
+                        <option value="2">
+                            Second Year
+                        </option>
+
+                        <option value="3">
+                            Third Year
+                        </option>
+
+                        <option value="4">
+                            Fourth Year
+                        </option>
+
+                        <option value="5">
+                            Fifth Year
+                        </option>
+
+                        <option value="6">
+                            Sixth Year
+                        </option>
+
+                    </select>
+
+                    <button type="submit">
+                        Create Account
+                    </button>
+
+                </form>
+
+                <p id="signup-error" class="error"></p>
+
+                <p class="switch-auth">
+                    Already have an account?
+
+                    <button
+                        type="button"
+                        id="show-login"
+                        class="text-button"
+                    >
+                        Login
+                    </button>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN APPLICATION
+    ========================== -->
+
+    <div
+        id="app-section"
+        class="hidden"
+    >
+
+        <header class="navbar">
+
+            <div class="logo">
+                Campus<span>SkillShare</span>
+            </div>
+
+            <nav>
+
+                <button
+                    class="nav-button active"
+                    data-section="discover"
+                >
+                    Discover
+                </button>
+
+                <button
+                    class="nav-button"
+                    data-section="matches"
+                >
+                    Matches
+                </button>
+
+                <button
+                    class="nav-button"
+                    data-section="profile"
+                >
+                    My Profile
+                </button>
+
+                <button
+                    id="logout-button"
+                    class="logout-button"
+                >
+                    Logout
+                </button>
+
+            </nav>
+
+        </header>
+
+
+        <main class="main-content">
+
+
+            <!-- DISCOVER -->
+
+            <section
+                id="discover-section"
+                class="app-page"
+            >
+
+                <div class="page-heading">
+
+                    <h1>Find your teammates</h1>
+
+                    <p>
+                        Discover students with complementary
+                        skills and shared project interests.
+                    </p>
+
+                </div>
+
+                <div id="profile-container">
+
+                    <p class="loading">
+                        Loading students...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- MATCHES -->
+
+            <section
+                id="matches-section"
+                class="app-page hidden"
+            >
+
+                <div class="page-heading">
+
+                    <h1>Your Matches</h1>
+
+                    <p>
+                        Students who connected with you.
+                    </p>
+
+                </div>
+
+                <div id="matches-container">
+
+                    <p class="loading">
+                        Loading matches...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROFILE -->
+
+            <section
+                id="profile-section"
+                class="app-page hidden"
+            >
+
+                <div class="page-heading">
+
+                    <h1>My Profile</h1>
+
+                    <p>
+                        Tell other students what you can
+                        offer and what you're looking for.
+                    </p>
+
+                </div>
+
+
+                <form id="profileForm" class="profile-form">
+
+                    <label>
+                        Bio
+                    </label>
+
+                    <textarea
+                        id="profile-bio"
+                        maxlength="280"
+                        placeholder="Tell students a little about yourself..."
+                    ></textarea>
+
+
+                    <label>
+                        Skills I can offer
+                    </label>
+
+                    <input
+                        type="text"
+                        id="skills-offered"
+                        placeholder="Python, SQL, React"
+                    >
+
+                    <small>
+                        Separate skills with commas.
+                    </small>
+
+
+                    <label>
+                        Skills I want to learn
+                    </label>
+
+                    <input
+                        type="text"
+                        id="skills-wanted"
+                        placeholder="Java, AWS, Docker"
+                    >
+
+                    <small>
+                        Separate skills with commas.
+                    </small>
+
+
+                    <label>
+                        Project interests
+                    </label>
+
+                    <input
+                        type="text"
+                        id="project-interests"
+                        placeholder="AI, Web Development, Hackathons"
+                    >
+
+                    <small>
+                        Separate interests with commas.
+                    </small>
+
+
+                    <label>
+                        Availability
+                    </label>
+
+                    <select id="availability">
+
+                        <option value="Flexible">
+                            Flexible
+                        </option>
+
+                        <option value="Weekdays">
+                            Weekdays
+                        </option>
+
+                        <option value="Weekends">
+                            Weekends
+                        </option>
+
+                        <option value="Evenings">
+                            Evenings
+                        </option>
+
+                    </select>
+
+
+                    <button type="submit">
+                        Save Profile
+                    </button>
+
+                    <p id="profile-message"></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- CHAT -->
+
+            <section
+                id="chat-section"
+                class="app-page hidden"
+            >
+
+                <div class="page-heading">
+
+                    <h1>Chat</h1>
+
+                    <p id="chat-user-name">
+                        Select a match to start chatting.
+                    </p>
+
+                </div>
+
+                <div class="chat-container">
+
+                    <div
+                        id="messages-container"
+                        class="messages-container"
+                    >
+                    </div>
+
+                    <form
+                        id="messageForm"
+                        class="message-form"
+                    >
+
+                        <input
+                            type="text"
+                            id="message-input"
+                            placeholder="Type a message..."
+                            maxlength="2000"
+                            required
+                        >
+
+                        <button type="submit">
+                            Send
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="/app.js"></script>
+
+</body>
+</html>
